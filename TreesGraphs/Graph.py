@@ -11,7 +11,7 @@ class Edge:
         return self._destination if v is self._origin else self._origin
 
     def element(self):
-        return self._element
+        return (self._origin.element(), self._destination.element())
 
     def __hash__(self):
         return hash((self._origin, self._destination))
@@ -78,3 +78,7 @@ class Graph:
         e = Edge(u, v, x)
         self._outgoing[u][v] = e
         self._incoming[v][u] = e
+
+    def delete_edge(self, edge: Edge):
+        del self._outgoing[edge._origin][edge._destination]
+        del self._incoming[edge._destination][edge._origin]

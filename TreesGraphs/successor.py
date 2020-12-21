@@ -18,7 +18,7 @@ def successor(node):
         return parent
 
 
-class Node():
+class Node:
     def __init__(self, data, left=None, right=None):
         self.data, self.left, self.right = data, left, right
         self.parent = None
